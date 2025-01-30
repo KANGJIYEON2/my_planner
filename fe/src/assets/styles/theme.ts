@@ -1,21 +1,14 @@
-import { DefaultTheme } from 'styled-components';
+import { DefaultTheme } from "styled-components";
 
 const theme: DefaultTheme = {
-    basicWidth: '320px',
+  basicWidth: "320px",
 
-    color: {
-        main: '#1c1f25',
-        sub: '#fff',
-    },
+  color: {
+    main: "#468585",
+    second: "#50B498",
+    third: "#9CDBA6",
+    fourth: "#DEF9C4",
+  },
 };
 
-const nextTheme: DefaultTheme = {
-    basicWidth: '320px',
-
-    color: {
-        main: '#1c1f25',
-        sub: '#fff',
-    },
-};
-
-export { theme, nextTheme };
+export { theme };
