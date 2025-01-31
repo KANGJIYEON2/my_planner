@@ -12,11 +12,10 @@ const Logo = () => {
 const LogoWrapper = styled.div`
     height: fit-content;
     display: flex;
-    padding: 10px;
     img {
-        width: 60px;
-        height: 80px;
-        margin-right: 16px;
+        width: 50px;
+        height: 70px;
+        margin-right: 12px;
     }
     h1 {
         font-weight: bold;

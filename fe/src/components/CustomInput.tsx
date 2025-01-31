@@ -1,13 +1,16 @@
 import { styled } from 'styled-components';
 
 export type CustomIputType = {
-    name: string;
-    type: string;
+    className?: string;
+    width?: string;
+    InPutPadding?: string;
+    name?: string;
+    type?: string;
 };
 
-const CustomInput = ({ name, type }: CustomIputType) => {
+const CustomInput = ({ className, name, type, ...rest }: CustomIputType) => {
     return (
-        <InputWrapper>
+        <InputWrapper className={className} {...rest}>
             <input type={type} id="input" required />
             <label htmlFor="input" className="placeholder">
                 {name}
@@ -15,17 +18,18 @@ const CustomInput = ({ name, type }: CustomIputType) => {
         </InputWrapper>
     );
 };
-const InputWrapper = styled.div`
-    padding: 12px;
+const InputWrapper = styled.div<CustomIputType>`
     color: ${(props) => props.theme.color.second};
     position: relative;
     display: flex;
     align-items: center;
     input {
-        padding: 10px;
-        border: 2px solid ${(props) => props.theme.color.second};
+        padding: ${(props) =>
+            props.InPutPadding ? props.InPutPadding : 'auto'};
+        border: 1px solid ${(props) => props.theme.color.second};
         outline: none;
         border-radius: 10px;
+        width: ${(props) => (props.width ? props.width : 'auto')};
     }
     .placeholder {
         position: absolute;
@@ -36,7 +40,7 @@ const InputWrapper = styled.div`
         transition: all 0.2s ease-in;
     }
     input:is(:focus, :valid) {
-        border: 2px solid ${(props) => props.theme.color.main};
+        border: 1px solid ${(props) => props.theme.color.main};
     }
     input:is(:focus, :valid) + .placeholder {
         transform: translatey(calc(-20px));
